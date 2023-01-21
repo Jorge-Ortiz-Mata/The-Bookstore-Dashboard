@@ -1,1 +1,18 @@
-<h1>Sidebar</h1>
+<nav class="border-[#FFF6C3] w-72 border flex flex-col gap-5">
+
+  <div class="flex items-center justify-center mt-5">
+    <h3 class="font-bold text-lg text-white ">Bookstore Options</h3>
+  </div>
+
+  <%= turbo_frame_tag 'add_sell', class: 'flex items-center justify-center' do %>
+    <%= link_to '#', id: 'add_sell_link', class: 'text-white font-semibold text-sm text-center bg-green-700 text-white rounded px-4 py-2' do %>
+      Add sell
+    <% end %>
+  <% end %>
+
+  <%= turbo_frame_tag 'add_new_book', class: 'flex items-center justify-center' do %>
+    <%= link_to '#', id: 'add_new_book_link', class: 'text-white font-semibold text-sm text-center bg-sky-700 text-white rounded px-4 py-2' do %>
+      Add a new book
+    <% end %>
+  <% end %>
+</nav>
