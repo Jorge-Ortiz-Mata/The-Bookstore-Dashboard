@@ -11,7 +11,7 @@
   <% end %>
 
   <%= turbo_frame_tag 'add_new_book', class: 'flex items-center justify-center' do %>
-    <%= link_to '#', id: 'add_new_book_link', class: 'text-white font-semibold text-sm text-center bg-sky-700 text-white rounded px-4 py-2' do %>
+    <%= link_to new_book_path, id: 'add_new_book_link', class: 'text-white font-semibold text-sm text-center bg-sky-700 text-white rounded px-4 py-2' do %>
       Add a new book
     <% end %>
   <% end %>
