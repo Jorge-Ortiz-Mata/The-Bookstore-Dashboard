@@ -5,7 +5,7 @@
   </div>
 
   <%= turbo_frame_tag 'add_sell', class: 'flex items-center justify-center' do %>
-    <%= link_to '#', id: 'add_sell_link', class: 'text-white font-semibold text-sm text-center bg-green-700 text-white rounded px-4 py-2' do %>
+    <%= link_to new_sell_path, id: 'add_sell_link', class: 'text-white font-semibold text-sm text-center bg-green-700 text-white rounded px-4 py-2' do %>
       Add sell
     <% end %>
   <% end %>
