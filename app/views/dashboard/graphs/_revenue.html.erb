@@ -1,0 +1,20 @@
+<div class="flex flex-col my-5 rounded-lg py-4 px-10 border shadow-lg bg-gray-100 justify-center">
+  <div class="font-semibold text-xl text-center my-5">
+    Reveue from the Bookstore.
+  </div>
+  <div class="flex items-center justify-center">
+    <%= pie_chart revenue_from_sells %>
+  </div>
+  <div>
+    <h5 class="font-bold">Sells for each book</h5>
+    <ul>
+      <% Book.all.each do |book| %>
+        <li class="text-sm font-semibold"> - <%= book.name %>: $<%= book.sells.sum(:total).round(2) %> USD</li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="flex flex-col w-full items-center my-5">
+    <h4 class="font-bold">Total revenue.</h4>
+    <span class="font-bold text-xl">$ <%= Sell.all.sum(:total).round(2) %> USD</span>
+  </div>
+</div>
