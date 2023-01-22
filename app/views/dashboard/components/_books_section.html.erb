@@ -1,7 +1,5 @@
-<div class="flex flex-col w-2/6">
-  <h4 class="text-white text-2xl font-semibold text-center my-5">Boook's Lastest Sells.</h4>
+<h4 class="text-white text-2xl font-semibold text-center my-5">Boook's Lastest Sells.</h4>
 
-  <% Book.order(:created_at).each do |book| %>
-    <%= render 'dashboard/components/book_graph', book: book %>
-  <% end %>
-</div>
+<% Book.order(:created_at).each do |book| %>
+  <%= render 'dashboard/graphs/book', book: book %>
+<% end %>

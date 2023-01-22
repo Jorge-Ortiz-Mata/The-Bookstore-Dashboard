@@ -8,6 +8,16 @@ class Sell < ApplicationRecord
 
   DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 
+  def self.get_sells_from_days
+    array = Array.new
+
+    Sell::DAYS.each do |day|
+      array.push([day, Sell.where(day: day).sum(:quantity)])
+    end
+
+    array
+  end
+
   private
 
   def calculate_total
