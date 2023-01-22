@@ -2,17 +2,33 @@
   <div class="font-semibold text-xl text-center my-5">
     Reveue from the Bookstore.
   </div>
+
   <div class="flex items-center justify-center">
     <%= pie_chart revenue_from_sells %>
   </div>
-  <div>
-    <h5 class="font-bold">Sells for each book</h5>
-    <ul>
-      <% Book.all.each do |book| %>
-        <li class="text-sm font-semibold"> - <%= book.name %>: $<%= book.sells.sum(:total).round(2) %> USD</li>
-      <% end %>
-    </ul>
+
+  <div class="my-5 flex flex-col">
+    <h5 class="font-bold text-center my-5 text-xl">Sells for each book</h5>
+    <table class="my-5">
+      <div class="flex w-full">
+        <div class="w-1/3 flex items-center font-semibold border-2 justify-center">ID</div>
+        <div class="w-1/3 flex items-center font-semibold border-2 justify-center">Name</div>
+        <div class="w-1/3 flex items-center font-semibold border-2 justify-center">Revenue</div>
+      </div>
+      <div class="flex flex-col">
+        <% Book.all.each do |book| %>
+          <div class="flex">
+            <div class="w-1/3 flex items-center font-semibold border-2 justify-center"><%= book.id %></div>
+            <div class="w-1/3 flex items-center font-semibold border-2 justify-center"><%= book.name %></div>
+            <div class="w-1/3 flex items-center font-semibold border-2 justify-center">$<%= book.sells.sum(:total).round(2) %> USD</div>
+          </div>
+        <% end %>
+      </div>
+    </table>
   </div>
+
+
+
   <div class="flex flex-col w-full items-center my-5">
     <h4 class="font-bold">Total revenue.</h4>
     <span class="font-bold text-xl">$ <%= Sell.all.sum(:total).round(2) %> USD</span>

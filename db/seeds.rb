@@ -7,7 +7,11 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 
-2.times do
+5.times do
   book_price = rand(30.0..50.0)
-  Book.create(name: Faker::Book.title, price: book_price)
+  book = Book.create(name: Faker::Book.title, price: book_price)
+
+  10.times do
+    book.sells << Sell.create(quantity: rand(2..15), day: Sell::DAYS[rand(0..(Sell::DAYS.length))])
+  end
 end

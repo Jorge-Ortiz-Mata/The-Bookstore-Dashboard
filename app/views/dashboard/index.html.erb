@@ -7,16 +7,18 @@
       <%= render 'dashboard/components/title' %>
     </div>
 
-    <div class="flex gap-10 px-10">
-      <section class="flex flex-col w-2/6">
-        <%= render 'dashboard/components/books_section' %>
-      </section>
+    <% if Book.all.any? %>
+      <div class="flex gap-10 px-10">
+        <section class="flex flex-col w-2/6">
+          <%= render 'dashboard/components/books_section' %>
+        </section>
 
-      <section class="flex flex-col w-4/6">
-        <%= render 'dashboard/components/days_section' %>
-        <%= render 'dashboard/components/earnings_section' %>
-      </section>
-    </div>
+        <section class="flex flex-col w-4/6">
+          <%= render 'dashboard/components/days_section' %>
+          <%= render 'dashboard/components/earnings_section' %>
+        </section>
+      </div>
+    <% end %>
   </section>
 
 </main>
