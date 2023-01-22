@@ -4,7 +4,8 @@ class CreateSells < ActiveRecord::Migration[7.0]
       t.integer :quantity
       t.decimal :total
       t.string :day
-      t.string :book_name
+      t.references :book, null: false, foreign_key: true
+
       t.timestamps
     end
   end

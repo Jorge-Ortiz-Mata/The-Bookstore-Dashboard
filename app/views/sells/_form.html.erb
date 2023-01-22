@@ -13,7 +13,7 @@
 
       <div class="flex flex-col gap-1 px-2">
         <%= f.label :book_name, 'Book:', id: 'label_book_name', class: 'text-sm font-semibold text-white' %>
-        <%= f.select(:book_name,  Book.all.collect {|book| [ book.name, book.name ] }, { include_blank: true },
+        <%= f.select(:book_id,  Book.all.collect {|book| [ book.name, book.id ] }, { include_blank: true },
           { class: 'font-semibold rounded p-2 text-xs w-full', id: 'select_book_name'})
         %>
       </div>

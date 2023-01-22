@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_21_055812) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_22_214056) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -25,9 +25,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_21_055812) do
     t.integer "quantity"
     t.decimal "total"
     t.string "day"
-    t.string "book_name"
+    t.bigint "book_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_sells_on_book_id"
   end
 
+  add_foreign_key "sells", "books"
 end
