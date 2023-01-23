@@ -4,6 +4,8 @@ class Book < ApplicationRecord
 
   has_many :sells
 
+  after_create_commit :set_book_graph
+
   def lastest_sells
     array = Array.new
 
@@ -12,5 +14,11 @@ class Book < ApplicationRecord
     end
 
     array
+  end
+
+  private
+
+  def set_book_graph
+    broadcast_append_to("books_custom_channel", partial: 'dashboard/graphs/book', locals: { book: self }, target: 'books_section_graphs')
   end
 end

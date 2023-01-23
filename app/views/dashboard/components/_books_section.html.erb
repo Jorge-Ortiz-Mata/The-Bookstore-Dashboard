@@ -1,5 +1,7 @@
 <h4 class="text-white text-2xl font-semibold text-center my-5">Boook's Lastest Sells.</h4>
 
-<% Book.order(:created_at).each do |book| %>
-  <%= render 'dashboard/graphs/book', book: book %>
-<% end %>
+<div id="books_section_graphs">
+  <% Book.order(:created_at).each do |book| %>
+    <%= render 'dashboard/graphs/book', book: book %>
+  <% end %>
+</div>
