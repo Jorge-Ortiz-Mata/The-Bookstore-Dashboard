@@ -2,28 +2,27 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
   connect() {
-    const daysSection = document.getElementById(this.element.id)
-    const dataArray = JSON.parse(daysSection.getAttribute('data'));
+    const revenueSection = document.getElementById(this.element.id)
+    const dataArray = JSON.parse(revenueSection.getAttribute('data'));
     const barColors = ["red", "green","blue","orange","brown", "purple", "pink", "yellow", "gray", "black", "white"];
-    let days = [];
-    let total = [];
+    let books = [];
+    let revenue = [];
 
     dataArray.forEach(obj => {
-      days.push(obj[0]);
-      total.push(obj[1]);
-    })
+      books.push(obj[0]);
+      revenue.push(obj[1]);
+    });
 
-    new Chart("days_chart", {
-      type: "bar",
+    new Chart("revenue_chart", {
+      type: "pie",
       data: {
-        labels: days,
+        labels: books,
         datasets: [{
           backgroundColor: barColors,
-          data: total
+          data: revenue
         }]
       },
       options: {
-        legend: {display: false},
         title: {
           display: false,
         }

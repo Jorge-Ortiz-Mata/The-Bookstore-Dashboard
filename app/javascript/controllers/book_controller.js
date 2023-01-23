@@ -25,6 +25,9 @@ export default class extends Controller {
       },
       options: {
         legend: {display: true},
+        title: {
+          display: false,
+        }
       }
     });
   }

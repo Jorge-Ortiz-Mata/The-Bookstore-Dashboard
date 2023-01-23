@@ -6,7 +6,7 @@ class Sell < ApplicationRecord
 
   before_create :calculate_total
 
-  # after_create_commit :set_sells_graphs
+  after_create_commit :set_sells_graphs
 
   DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
 
@@ -17,7 +17,7 @@ class Sell < ApplicationRecord
     self.total = book_price * quantity
   end
 
-  # def set_sells_graphs
-  #   broadcast_replace_to("sells_custom_channel", partial: 'dashboard/test', locals: {}, target: 'days_graph')
-  # end
+  def set_sells_graphs
+    broadcast_replace_to("sells_custom_channel", partial: 'dashboard/graphs/days', locals: {}, target: 'days_section_chart')
+  end
 end
