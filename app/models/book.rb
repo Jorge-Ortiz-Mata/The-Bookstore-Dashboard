@@ -9,8 +9,8 @@ class Book < ApplicationRecord
   def lastest_sells
     array = Array.new
 
-    sells.each_with_index do |sell, index|
-      array.push([index, sell.quantity])
+    sells.each do |sell|
+      array.push(sell.quantity)
     end
 
     array

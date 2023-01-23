@@ -1,5 +1,6 @@
-<div class="flex flex-col my-5 rounded-lg py-4 px-10 border shadow-lg bg-gray-100" data-controller="chart" data="<%= book.lastest_sells %>" book="<%= book.id %>" id="<%= book.id %>">
-  <div class="font-semibold text-xl text-center my-5" data-action="click->chart#isLoaded">
+<div class="flex flex-col my-5 rounded-lg py-4 px-10 border shadow-lg bg-gray-100" data-controller="book"
+  data="<%= book.lastest_sells %>" book="<%= book.id %>" id="<%= book.id %>">
+  <div class="font-semibold text-xl text-center my-5" data-action="click->book#isLoaded">
     <%= book.name %>
   </div>
   <canvas id="chart_<%= book.id %>" style="width:100%;max-width:700px"></canvas>
