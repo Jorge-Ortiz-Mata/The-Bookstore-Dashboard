@@ -19,5 +19,7 @@ class Sell < ApplicationRecord
 
   def set_sells_graphs
     broadcast_replace_to("sells_custom_channel", partial: 'dashboard/graphs/days', locals: {}, target: 'days_section_chart')
+    broadcast_replace_to("sells_custom_channel", partial: 'dashboard/graphs/revenue', locals: {}, target: 'revenue_section_chart')
+    broadcast_replace_to("sells_custom_channel", partial: 'dashboard/graphs/book', locals: {book: book}, target: "#{book.id}")
   end
 end
