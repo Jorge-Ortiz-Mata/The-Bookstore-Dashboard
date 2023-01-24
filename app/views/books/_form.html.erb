@@ -1,27 +1,26 @@
-<%= turbo_frame_tag 'add_new_book', class: 'flex flex-col w-full' do %>
-  <div class="flex flex-col w-full" data-controller="form">
-    <%= form_with(model: book, class:'flex flex-col w-full gap-1', data: { controller: 'form', action: 'submit->form#resetForm' }) do |f| %>
-      <h5 class="text-center font-semibold mb-3 text-white">Create new book.</h5>
+<%= turbo_frame_tag 'add_new_book', class: 'flex items-center w-full ml-10' do %>
+  <div class="flex w-full items-center" data-controller="form">
+    <%= form_with(model: book, class:'flex w-full items-center', data: { controller: 'form', action: 'submit->form#resetForm' }) do |f| %>
 
       <% if book.errors.any? %>
-        <div class="bg-red-200 rounded p-2 flex flex-col mx-2 mb-3">
+        <div class="bg-red-200 rounded p-2 flex flex-col mx-2">
           <% book.errors.each do |error| %>
-            <p class="text-sm font-semibold text-red-800">- <%= error.full_message %></p>
+            <p class="text-xs font-semibold text-red-800">- <%= error.full_message %></p>
           <% end %>
         </div>
       <% end %>
 
-      <div class="flex flex-col gap-1 px-2">
-        <%= f.label :name, 'Name:', id: 'book_name_label', class: 'text-sm font-semibold w-1/3 text-white' %>
-        <%= f.text_field :name, id: 'book_name_input', class: 'font-semibold rounded p-2 text-xs w-full' %>
+      <div class="flex items-center gap-1 ml-2">
+        <%= f.label :name, 'Name:', id: 'book_name_label', class: 'font-semibold text-white' %>
+        <%= f.text_field :name, id: 'book_name_input', class: 'font-semibold rounded p-2 text-xs' %>
       </div>
 
-      <div class="flex flex-col gap-1 px-2">
-        <%= f.label :price, 'Price', id: 'book_name_label', class: 'text-sm font-semibold w-1/3 text-white' %>
-        <%= f.number_field :price, in: 1.0..100.0, step: :any, id: 'book_name_input', class: 'font-semibold rounded p-2 text-xs w-full' %>
+      <div class="flex items-center gap-1 ml-2">
+        <%= f.label :price, 'Price:', id: 'book_name_label', class: 'font-semibold text-white' %>
+        <%= f.number_field :price, in: 1.0..100.0, step: :any, id: 'book_name_input', class: 'font-semibold rounded p-2 text-xs' %>
       </div>
 
-      <div class="flex items-center justify-end px-2 mt-2 gap-2">
+      <div class="flex items-center justify-end gap-2 ml-5">
         <%= link_to 'Cancel', :back, id: 'cancel_book', class: 'font-semibold p-2 bg-red-600 text-sm text-white rounded' %>
         <%= f.submit id: 'submit_book', class: 'font-semibold p-2 bg-sky-600 text-sm text-white rounded' %>
       </div>

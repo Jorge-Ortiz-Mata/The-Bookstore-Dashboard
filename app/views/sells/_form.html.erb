@@ -1,36 +1,35 @@
 <%= turbo_frame_tag 'add_sell', class: 'flex items-center justify-center' do %>
-  <div class="flex flex-col w-full" data-controller="form">
-    <%= form_with(model: sell, class:'flex flex-col w-full gap-1', data: { controller: 'form', action: 'submit->form#resetForm' }) do |f| %>
-      <h5 class="text-center font-semibold mb-3 text-white">Add a new sell.</h5>
+  <div class="flex items-center w-full" data-controller="form">
+    <%= form_with(model: sell, class:'flex items-center w-full', data: { controller: 'form', action: 'submit->form#resetForm' }) do |f| %>
 
       <% if sell.errors.any? %>
-        <div class="bg-red-200 rounded p-2 flex flex-col mx-2 mb-3">
+        <div class="bg-red-200 rounded p-2 flex flex-col mx-2">
           <% sell.errors.each do |error| %>
             <p class="text-sm font-semibold text-red-800">- <%= error.full_message %></p>
           <% end %>
         </div>
       <% end %>
 
-      <div class="flex flex-col gap-1 px-2">
+      <div class="flex items-center gap-1 ml-2">
         <%= f.label :book_name, 'Book:', id: 'label_book_name', class: 'text-sm font-semibold text-white' %>
         <%= f.select(:book_id,  Book.all.collect {|book| [ book.name, book.id ] }, { include_blank: true },
           { class: 'font-semibold rounded p-2 text-xs w-full', id: 'select_book_name'})
         %>
       </div>
 
-      <div class="flex flex-col gap-1 px-2">
+      <div class="flex items-center gap-1 ml-2">
         <%= f.label :quantity, 'Quantity: ', id: 'sell_name_label', class: 'text-sm font-semibold text-white' %>
         <%= f.number_field :quantity, id: 'sell_name_input', class: 'font-semibold rounded p-2 text-xs w-full' %>
       </div>
 
-      <div class="flex flex-col gap-1 px-2">
+      <div class="flex items-center gap-1 ml-2">
         <%= f.label :day, 'Day of the week:', id: 'label_day', class: 'text-sm font-semibold text-white' %>
         <%= f.select(:day, Sell::DAYS.map { |option| [option.humanize, option] }, { include_blank: true },
           { class: 'font-semibold rounded p-2 text-xs w-full', id: 'select_day'})
         %>
       </div>
 
-      <div class="flex items-center justify-end px-2 mt-2 gap-2">
+      <div class="flex items-center justify-end gap-2 ml-5">
         <%= link_to 'Cancel', :back, id: 'cancel_sell', class: 'font-semibold p-2 bg-red-600 text-sm text-white rounded' %>
         <%= f.submit id: 'submit_sell', class: 'font-semibold p-2 bg-green-600 text-sm text-white rounded' %>
       </div>
