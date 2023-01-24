@@ -1,24 +1,47 @@
-# README
+# The Bookstore Dashboard App.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is the Bookstore Dashboard App. This web application was built with Ruby on Rails 7 and Hotwire.
 
-Things you may want to cover:
+## Description
 
-* Ruby version
+You can cereate books with their names and prices. Each book has sells, and this sells can be added inside the nav bar.
+Once the user creates a book, a new chart is created to show the book's latest sells. If the user creates a new sell, the days chart
+and the revenue chart will be updated, showing the lates sells by days and the total erevenue by book and by all books.
 
-* System dependencies
+## Demo.
 
-* Configuration
+This is the demo of the Bookstore Dashboard App.
 
-* Database creation
+<div>
+  <img src='./app/assets/images/video-gif.gif' width='800'>
+</div>
 
-* Database initialization
+## Images.
 
-* How to run the test suite
+An overview of the Bookstore Dashboard App.
 
-* Services (job queues, cache servers, search engines, etc.)
+<div>
+  <img src='./app/assets/images/01.png' width='800'>
+</div>
 
-* Deployment instructions
 
-* ...
+
+
+## Software and technologies
+
+* Ruby on Rails.
+* PostgreSQL.
+* Docker.
+* Hotwire.
+* TailwindCSS.
+
+## Schema database and tables.
+
+* Books.
+* Sells.
+
+## Author.
+
+* Jorge Ortiz.
+* Software engineer.
+* San Luis Potosí, S.L.P. México.
