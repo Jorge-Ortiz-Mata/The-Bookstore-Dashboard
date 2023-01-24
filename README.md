@@ -24,9 +24,6 @@ An overview of the Bookstore Dashboard App.
   <img src='./app/assets/images/01.png' width='800'>
 </div>
 
-
-
-
 ## Software and technologies
 
 * Ruby on Rails.
